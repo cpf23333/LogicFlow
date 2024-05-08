@@ -209,7 +209,10 @@ export default class PolylineEdgeModel extends BaseEdgeModel {
       default:
         break;
     }
-    list[0] = startCrossPoint;
+    // 如果线段和形状没有交点时startCrossPoint会为undefined导致后续计算报错
+    if (startCrossPoint) {
+      list[0] = startCrossPoint;
+    }
     const endPointDirection = segmentDirection(pre, end);
     let endCrossPoint = list[list.length - 1];
     switch (targetModelType) {
@@ -236,7 +239,10 @@ export default class PolylineEdgeModel extends BaseEdgeModel {
       default:
         break;
     }
-    list[list.length - 1] = endCrossPoint;
+    // 如果线段和形状没有交点时startCrossPoint会为undefined导致后续计算报错
+    if (endCrossPoint) {
+      list[list.length - 1] = endCrossPoint;
+    }
     return list;
   }
 
@@ -272,7 +278,7 @@ export default class PolylineEdgeModel extends BaseEdgeModel {
 
   @action
   updateStartPoint(anchor) {
-    this.startPoint = anchor;
+    this.startPoint = Object.assign({}, anchor);
     this.updatePoints();
   }
 
@@ -286,7 +292,7 @@ export default class PolylineEdgeModel extends BaseEdgeModel {
 
   @action
   updateEndPoint(anchor) {
-    this.endPoint = anchor;
+    this.endPoint = Object.assign({}, anchor);
     this.updatePoints();
   }
 
@@ -295,6 +301,19 @@ export default class PolylineEdgeModel extends BaseEdgeModel {
     this.endPoint.x += deltaX;
     this.endPoint.y += deltaY;
     this.updatePoints();
+  }
+
+  @action
+  updatePointsList(deltaX, deltaY): void {
+    this.pointsList.forEach(item => {
+      item.x += deltaX;
+      item.y += deltaY;
+    });
+    const startPoint = this.pointsList[0];
+    this.startPoint = Object.assign({}, startPoint);
+    const endPoint = this.pointsList[this.pointsList.length - 1];
+    this.endPoint = Object.assign({}, endPoint);
+    this.initPoints();
   }
 
   @action

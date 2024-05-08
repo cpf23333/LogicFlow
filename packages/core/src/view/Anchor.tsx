@@ -201,6 +201,17 @@ class Anchor extends Component<IProps, IState> {
     return customTrajectory;
   }
 
+  get relateEdges() {
+    const {
+      graphModel: { getAnchorIncomingEdge, getAnchorOutcomingEdge },
+      anchorData: { id },
+    } = this.props;
+    return {
+      incomingEdgeList: getAnchorIncomingEdge(id),
+      outcomingEdgeList: getAnchorOutcomingEdge(id),
+    };
+  }
+
   checkEnd: (event: MouseEvent) => BaseEdgeModel | null = (event) => {
     const {
       graphModel, nodeModel, anchorData: { x, y, id },
@@ -255,7 +266,7 @@ class Anchor extends Component<IProps, IState> {
       const nodeData = targetNode.getData();
       graphModel.eventCenter.emit(EventType.CONNECTION_NOT_ALLOWED, {
         data: nodeData,
-        msg: targetMsg || sourceMsg,
+        msg: targetMsg || sourceMsg || '不允许添加连线',
       });
       return null;
     }

@@ -1,4 +1,4 @@
-import { assign, cloneDeep } from 'lodash-es';
+import { assign, cloneDeep, find } from 'lodash-es';
 import { action, observable, computed, toJS } from '../../util/mobx';
 import { createUuid } from '../../util/uuid';
 import { getAnchors } from '../../util/node';
@@ -238,14 +238,22 @@ class BaseEdgeModel implements IBaseModel {
   }
 
   /**
-   * 内部方法，计算两个节点相连是起点位置
+   * 内部方法，计算两个节点相连时的起点位置
    */
-  getBeginAnchor(sourceNode, targetNode): Point | undefined {
+  getBeginAnchor(sourceNode, targetNode, sourceAnchorId): Point | undefined {
     // https://github.com/didi/LogicFlow/issues/1077
     // 可能拿到的sourceAnchors为空数组，因此position可能返回为undefined
     let position: Point | undefined;
     let minDistance;
     const sourceAnchors = getAnchors(sourceNode);
+    if (sourceAnchorId) {
+      position = find(sourceAnchors, (anchor) => anchor.id === sourceAnchorId);
+      // 如果指定了起始锚点，且指定锚点是节点拥有的锚点时，就把该点设置为起点
+      if (position) {
+        return position;
+      }
+      console.warn(`未在节点上找到指定的起点锚点${sourceAnchorId}，已使用默认锚点作为起点`);
+    }
     sourceAnchors.forEach((anchor) => {
       const distance = twoPointDistance(anchor, targetNode);
       if (minDistance === undefined) {
@@ -260,14 +268,22 @@ class BaseEdgeModel implements IBaseModel {
   }
 
   /**
-   * 内部方法，计算两个节点相连是终点位置
+   * 内部方法，计算两个节点相连时的终点位置
    */
-  getEndAnchor(targetNode): Point | undefined {
+  getEndAnchor(targetNode, targetAnchorId): Point | undefined {
     // https://github.com/didi/LogicFlow/issues/1077
     // 可能拿到的targetAnchors为空数组，因此position可能返回为undefined
     let position: Point | undefined;
     let minDistance;
     const targetAnchors = getAnchors(targetNode);
+    if (targetAnchorId) {
+      position = find(targetAnchors, (anchor) => anchor.id === targetAnchorId);
+      // 如果指定了终点锚点，且指定锚点是节点拥有的锚点时，就把该点设置为终点
+      if (position) {
+        return position;
+      }
+      console.warn(`未在节点上找到指定的终点锚点${targetAnchorId}，已使用默认锚点作为终点`);
+    }
     targetAnchors.forEach((anchor) => {
       const distance = twoPointDistance(anchor, this.startPoint);
       if (minDistance === undefined) {
@@ -477,8 +493,8 @@ class BaseEdgeModel implements IBaseModel {
   @action
   setAnchors(): void {
     if (!this.sourceAnchorId || !this.startPoint) {
-      const anchor = this.getBeginAnchor(this.sourceNode, this.targetNode);
-      if (!anchor && (!this.startPoint || !this.sourceAnchorId)) {
+      const anchor = this.getBeginAnchor(this.sourceNode, this.targetNode, this.sourceAnchorId);
+      if (!anchor) {
         // https://github.com/didi/LogicFlow/issues/1077
         // 当用户自定义getDefaultAnchor(){return []}时，表示：不显示锚点，也不允许其他节点连接到此节点
         // 此时拿到的anchor=undefined，下面会直接报错
@@ -497,8 +513,8 @@ class BaseEdgeModel implements IBaseModel {
       }
     }
     if (!this.targetAnchorId || !this.endPoint) {
-      const anchor = this.getEndAnchor(this.targetNode);
-      if (!anchor && (!this.endPoint || !this.targetAnchorId)) {
+      const anchor = this.getEndAnchor(this.targetNode, this.targetAnchorId);
+      if (!anchor) {
         // https://github.com/didi/LogicFlow/issues/1077
         // 当用户自定义getDefaultAnchor(){return []}时，表示：不显示锚点，也不允许其他节点连接到此节点
         // 此时拿到的anchor=undefined，下面会直接报错

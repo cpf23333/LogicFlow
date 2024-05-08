@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.27](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.23...@logicflow/extension@1.2.27) (2024-05-06)
+
+
+### Bug Fixes
+
+* **extension:** perform topGroupZIndex calibration when add node([#1535](https://github.com/didi/LogicFlow/issues/1535)) ([2d6e41c](https://github.com/didi/LogicFlow/commit/2d6e41c3e25df2a95887980652241963710e8e11))
+* **extension:** trigger updateEdgePointByAnchors() after moveTo([#1384](https://github.com/didi/LogicFlow/issues/1384)) ([65e7027](https://github.com/didi/LogicFlow/commit/65e7027170583a3f0a6ce07bc06d15a230e6e8fb))
+* optimize the experience of resizeNode ([135a8e3](https://github.com/didi/LogicFlow/commit/135a8e3385799c3c9c98634ad0fecb0532377001))
+* 修复选区插件无法触发鼠标事件的问题，同时兼容 Ctrl + 滚轮事件 ([129f101](https://github.com/didi/LogicFlow/commit/129f101faf2c3aae3d25917eb68ccabadbb93ec3))
+* 更新readme logo & publish 1.2.25 ([4da3db7](https://github.com/didi/LogicFlow/commit/4da3db7aebc892e685269340ca38a0b9a4f68c56))
+
+
+
+
+
+## [1.2.26](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.23...@logicflow/extension@1.2.26) (2024-04-10)
+
+
+### Bug Fixes
+
+* **extension:** perform topGroupZIndex calibration when add node([#1535](https://github.com/didi/LogicFlow/issues/1535)) ([2d6e41c](https://github.com/didi/LogicFlow/commit/2d6e41c3e25df2a95887980652241963710e8e11))
+* **extension:** trigger updateEdgePointByAnchors() after moveTo([#1384](https://github.com/didi/LogicFlow/issues/1384)) ([65e7027](https://github.com/didi/LogicFlow/commit/65e7027170583a3f0a6ce07bc06d15a230e6e8fb))
+* 修复选区插件无法触发鼠标事件的问题，同时兼容 Ctrl + 滚轮事件 ([129f101](https://github.com/didi/LogicFlow/commit/129f101faf2c3aae3d25917eb68ccabadbb93ec3))
+* 更新readme logo & publish 1.2.25 ([4da3db7](https://github.com/didi/LogicFlow/commit/4da3db7aebc892e685269340ca38a0b9a4f68c56))
+
+
+
+
+
+## [1.2.25](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.24...@logicflow/extension@1.2.25) (2024-04-03)
+
+**Note:** Version bump only for package @logicflow/extension
+
+
+
+
+
+## [1.2.24](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.23...@logicflow/extension@1.2.24) (2024-04-03)
+
+
+### Bug Fixes
+
+* 修复选区插件无法触发鼠标事件的问题，同时兼容 Ctrl + 滚轮事件 ([129f101](https://github.com/didi/LogicFlow/commit/129f101faf2c3aae3d25917eb68ccabadbb93ec3))
+
+
+
+
+
+## [1.2.23](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.22...@logicflow/extension@1.2.23) (2024-03-20)
+
+
+### Bug Fixes
+
+* 修复多实例时非首个实例导出不正确问题 ([27148c0](https://github.com/didi/LogicFlow/commit/27148c0e9c9db64daa09b279cb2e3b1578fccc93))
+
+
+
+
+
+## [1.2.22](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.20...@logicflow/extension@1.2.22) (2024-02-05)
+
+
+### Features
+
+* update @logicflow/core @logicflow/extension version to 1.2.21 ([55b865b](https://github.com/didi/LogicFlow/commit/55b865b381354a75b04d339fec2f10b34cd12738))
+
+
+
+
+
+## [1.2.20](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.19...@logicflow/extension@1.2.20) (2024-02-05)
+
+
+### Bug Fixes
+
+* **extension:** 修复task判定附加边界事件时的坐标判定问题 ([5ffdffd](https://github.com/didi/LogicFlow/commit/5ffdffd37e70c076bae9a52f0fc685375e64022e))
+
+
+
+
+
 ## [1.2.19](https://github.com/didi/LogicFlow/compare/@logicflow/extension@1.2.18...@logicflow/extension@1.2.19) (2023-11-22)
 
 

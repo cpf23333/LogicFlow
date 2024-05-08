@@ -3,6 +3,104 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.27](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.24...@logicflow/core@1.2.27) (2024-05-06)
+
+
+### Bug Fixes
+
+* **core:** snap the text pos of cloneNode to grid([#1545](https://github.com/didi/LogicFlow/issues/1545)) ([dc661bd](https://github.com/didi/LogicFlow/commit/dc661bd1a01c740eb886da8a98142d02dacced2d))
+* error when diamondNode's edge is dragging ([4978bf1](https://github.com/didi/LogicFlow/commit/4978bf12fde753b731a03341cc9b3c63253fcbaa))
+* optimize the experience of resizeNode ([135a8e3](https://github.com/didi/LogicFlow/commit/135a8e3385799c3c9c98634ad0fecb0532377001))
+* 更新readme logo & publish 1.2.25 ([4da3db7](https://github.com/didi/LogicFlow/commit/4da3db7aebc892e685269340ca38a0b9a4f68c56))
+* 框选拖动折线时更新起终点位置 ([27ca25b](https://github.com/didi/LogicFlow/commit/27ca25b02014e9b8f742702b70c0389687a6f4d5))
+
+
+
+
+
+## [1.2.26](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.24...@logicflow/core@1.2.26) (2024-04-10)
+
+
+### Bug Fixes
+
+* **core:** snap the text pos of cloneNode to grid([#1545](https://github.com/didi/LogicFlow/issues/1545)) ([dc661bd](https://github.com/didi/LogicFlow/commit/dc661bd1a01c740eb886da8a98142d02dacced2d))
+* 更新readme logo & publish 1.2.25 ([4da3db7](https://github.com/didi/LogicFlow/commit/4da3db7aebc892e685269340ca38a0b9a4f68c56))
+* 框选拖动折线时更新起终点位置 ([27ca25b](https://github.com/didi/LogicFlow/commit/27ca25b02014e9b8f742702b70c0389687a6f4d5))
+
+
+
+
+
+## [1.2.25](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.24...@logicflow/core@1.2.25) (2024-04-03)
+
+
+### Bug Fixes
+
+* 框选拖动折线时更新起终点位置 ([ad3afe1](https://github.com/didi/LogicFlow/commit/ad3afe1b3de4c30e9acd5d19ea49d0cb7f04cfd1))
+
+
+
+
+
+## [1.2.24](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.23...@logicflow/core@1.2.24) (2024-04-03)
+
+
+### Bug Fixes
+
+* 修复nuxt使用报错 ([f8f7da9](https://github.com/didi/LogicFlow/commit/f8f7da9f87a0239eea7913a7c979a54940d6bd91))
+* 修复选区插件无法触发鼠标事件的问题，同时兼容 Ctrl + 滚轮事件 ([129f101](https://github.com/didi/LogicFlow/commit/129f101faf2c3aae3d25917eb68ccabadbb93ec3))
+* 锚点连线失败增加默认错误提示 ([05ed811](https://github.com/didi/LogicFlow/commit/05ed811591bee08951a404c70b44acd0f0a39643))
+
+
+
+
+
+## [1.2.23](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.22...@logicflow/core@1.2.23) (2024-03-20)
+
+
+### Bug Fixes
+
+* 优化代码 ([10d311d](https://github.com/didi/LogicFlow/commit/10d311db4a816784bafe4266737d5af656716b6b))
+* 增加获取锚点关联边的能力&修复边的起终点移动时报错问题 ([543fff7](https://github.com/didi/LogicFlow/commit/543fff7c0a14ebe5b3b5ebf1c5df773c7e6a0dc5))
+
+
+### Features
+
+* 自定义连线支持指定锚点 ([d344d38](https://github.com/didi/LogicFlow/commit/d344d3801cbb0bcbcf699c0bf91e661c55d67890))
+
+
+
+
+
+## [1.2.22](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.19...@logicflow/core@1.2.22) (2024-02-05)
+
+
+### Features
+
+* update @logicflow/core @logicflow/extension version to 1.2.21 ([55b865b](https://github.com/didi/LogicFlow/commit/55b865b381354a75b04d339fec2f10b34cd12738))
+
+
+
+
+
+## [1.2.19](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.18...@logicflow/core@1.2.19) (2024-02-05)
+
+
+### Bug Fixes
+
+* **core:** types build error ([fb4bb27](https://github.com/didi/LogicFlow/commit/fb4bb27602ca4cb9bd0f085a7421dbfa6049e18e))
+* 修复stopMoveGraph从true置为false后画布仍无法移动问题 ([37b5c4a](https://github.com/didi/LogicFlow/commit/37b5c4aced4cfb66040f563316c4206b5d26716f))
+* 修复静默模式切换后快捷键和拖拽节点状态不更新问题 ([#1491](https://github.com/didi/LogicFlow/issues/1491)) ([926f33e](https://github.com/didi/LogicFlow/commit/926f33e3f79ca148c00723c627d209f21f38fc25))
+
+
+### Features
+
+* **core:** add test for core ([6780155](https://github.com/didi/LogicFlow/commit/67801556fc104a3e77c70f7016a56dbe17f52185))
+
+
+
+
+
 ## [1.2.18](https://github.com/didi/LogicFlow/compare/@logicflow/core@1.2.17...@logicflow/core@1.2.18) (2023-11-22)
 
 
